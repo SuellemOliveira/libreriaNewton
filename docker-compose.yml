@@ -1,0 +1,32 @@
+
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root12
+      MYSQL_DATABASE: book
+    ports:
+      - "3306:3306"
+    networks:
+      - libreria-net
+
+  spring-app:
+    build: .
+    container_name: spring-app
+    ports:
+      - "1001:1001"
+    depends_on:
+      - mysql-db
+    environment:
+      
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/book?serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root12
+    networks:
+      - libreria-net
+
+networks:
+  libreria-net:
+    driver: bridge

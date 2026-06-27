@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" dir="ltr" xmlns:th="https://www.thymeleaf.com">
+  <head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW" crossorigin="anonymous">
+
+    <title>Libreria Newton</title>
+    
+    <style>
+      body {
+      
+      background-image: url('images/N.png');  
+        
+       
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+       
+        background-color: #f4eae1; 
+      }
+
+     
+     h4 {
+        color: #3d2514; 
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+      
+   
+      .form-label {
+        color: #3d2514;
+        font-weight: 600;
+      }
+
+  
+      .btn-custom {
+        background-color: #3d2514;
+        color: #f4eae1;
+        border: none;
+        padding: 10px 30px;
+        font-weight: bold;
+      }
+      
+      .btn-custom:hover {
+        background-color: #5c3a1f;
+        color: #f4eae1;
+      }
+      
+    </style>
+    
+  </head>
+  <body>
+    
+  </head>
+  <body>
+  
+  <nav class="navbar navbar-expand-lg" style="background-color: #C5A059; color: #6f42c1;" dir="ltr">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: #3d2514; font-weight: bold;" href="#">Libreria Newton</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" style="color: #3d2514;" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #3d2514;" href="#">Libri Disponibili</a>
+        
+      </ul>
+    <div>
+            <a class="nav-link" style="color: #3d2514;" href="aggiungere_libro">Aggiungere Libro</a>
+    </div>
+    </div>
+  </div>
+</nav>
+  
+      
+     
+       <div class="container my-5 d-flex flex-column align-items-center">
+       <h4 class="text-center"> Modifica I Dettagli Del Libro</h4>
+       
+      <form class="col-12 col-md-4" th:action="@{/save}" method="post" th:object="${book}">
+      
+      <input type="hidden" name="id" th:value="${book.id}"/>
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" name="nome" th:value="${book.nome}">
+  </div>
+  
+  <div class="mb-3">
+    <label for="autore" class="form-label">Autore</label>
+    <input type="text" class="form-control" name="autore" th:value="${book.autore}">
+   
+  </div>
+  
+  <div class="mb-3">
+    <label for="prezzo" class="form-label">Prezzo</label>
+    <input type="text" class="form-control" name="prezzo" th:value="${book.prezzo}">
+   
+  </div>
+  
+ <center> <button type="submit" class="btn btn-custom w-100">Submit</button> </center>
+</form>
+       
+       
+       </div>
+  
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
