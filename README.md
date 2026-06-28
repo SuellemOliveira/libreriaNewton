@@ -1,27 +1,30 @@
-#LibreriaNewton
+# LibreriaNewton - Progetto di Evoluzione del Software
 
-Questo progetto è un'applicazione web per la gestione dei libri, sviluppata per il corso di **Evoluzione del Software**. L'applicazione utilizza un'architettura moderna ed è pronta per gli ambienti di produzione attraverso i container.
+Questo progetto è un'applicazione web completa per la gestione bibliotecaria, sviluppata con l'obiettivo di dimostrare le competenze di **dockerizzazione** e **cloud deployment**.
 
-## Tecnologie Utilizzate
-* **Linguaggio:** Java 17
-* **Framework:** Spring Boot 3.x
-* **Database:** MySQL 8.0
-* **Frontend:** Thymeleaf / HTML5
-* **Infrastruttura:** Docker & Docker Compose
-* **Cloud:** AWS (Amazon EC2)
+## Live Demo su AWS
+L'applicazione è attualmente ospitata su un'istanza **Amazon EC2** (Regione: Stockholm).
+ **Accedi qui:** [http://51.20.129.199:1001](http://51.20.129.199:1001)
 
-## Dockerizzazione
-Il progetto è stato strutturato per essere eseguito in container, garantendo che l'ambiente di sviluppo sia identico a quello di produzione.
-* **Dockerfile:** Configura l'immagine dell'applicazione Spring Boot.
-* **Docker Compose:** Orchestra l'applicazione e il database MySQL in una rete isolata.
+## Architettura e Tecnologie
+*   **Backend:** Java 22 con Spring Boot 3.x.
+*   **Database:** MySQL 8.0 per la persistenza dei dati.
+*   **Frontend:** Thymeleaf e HTML5 con un design personalizzato.
+*   **Containerizzazione:** Docker e Docker Compose per l'orchestrazione dei servizi.
+*   **Cloud:** AWS (Amazon Web Services) con gestione di Security Groups e Inbound Rules.
 
-## Deploy su AWS
-L'applicazione è disponibile per il test tramite il servizio **Amazon EC2**.
-**Accedi qui:** http://51.20.129.199:1001
+## Dettagli della Dockerizzazione
+Il progetto utilizza un'architettura a due container:
+1.  **spring-app:** L'applicazione Java, configurata con un `Dockerfile` basato su `openjdk:22-jdk-slim`.
+2.  **mysql-db:** Il database MySQL, configurato con variabili d'ambiente per la creazione automatica dello schema `book`.
+
+I container comunicano all'interno di una rete virtuale Docker, garantendo l'isolamento e la portabilità del software, come studiato nei moduli di **Docker parte 1 e 3**.
 
 ## Come eseguire localmente
-1. Assicurati di avere Docker installato.
-2. Clona il repository: `git clone https://github.com/SuellemOliveira/libreriaNewton.git`
-3. Nella cartella principale del progetto, esegui:
-   ```bash
-   docker-compose up --build
+1.  Clona il repository: `git clone https://github.com/SuellemOliveira/libreriaNewton.git`
+2.  Assicurati di avere il file `.jar` nella cartella `target/`.
+3.  Esegui il comando:
+    ```bash
+    docker-compose up --build
+    ```
+4.  L'applicazione sarà disponibile su `http://localhost:1001`.
