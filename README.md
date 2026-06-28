@@ -17,11 +17,11 @@ Il progetto è stato strutturato per essere eseguito in container, garantendo ch
 
 ## Deploy su AWS
 L'applicazione è disponibile per il test tramite il servizio **Amazon EC2**.
-👉 **Accedi qui:** [INSERISCI_IL_TUO_LINK_AWS_QUI]
+**Accedi qui:** http://51.20.129.199:1001
 
-## 🛠️ Come eseguire localmente
+## Come eseguire localmente
 1. Assicurati di avere Docker installato.
-2. Clona il repository: `git clone https://github.com/IL_TUO_UTENTE/libreriaNewton.git`
+2. Clona il repository: `git clone https://github.com/SuellemOliveira/libreriaNewton.git`
 3. Nella cartella principale del progetto, esegui:
    ```bash
    docker-compose up --build
